@@ -1,13 +1,13 @@
-import React, { useContext, useEffect } from 'react'
-import { CartContext } from '../Global/CartContext'
+import React, { useContext, useEffect } from 'react';
+import { CartContext } from '../Global/CartContext';
 import { Navbar } from './Navbar';
-import { Icon } from 'react-icons-kit'
-import { ic_add } from 'react-icons-kit/md/ic_add'
-import { ic_remove } from 'react-icons-kit/md/ic_remove'
-import { iosTrashOutline } from 'react-icons-kit/ionicons/iosTrashOutline'
-import { Link } from 'react-router-dom'
-import { useHistory } from 'react-router-dom'
-import { auth } from '../Config/Config'
+import { Icon } from 'react-icons-kit';
+import { ic_add } from 'react-icons-kit/md/ic_add';
+import { ic_remove } from 'react-icons-kit/md/ic_remove';
+import { iosTrashOutline } from 'react-icons-kit/ionicons/iosTrashOutline';
+import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+import { auth } from '../Config/Config';
 
 export const Cart = ({ user }) => {
 

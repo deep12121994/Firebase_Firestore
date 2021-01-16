@@ -1,16 +1,16 @@
-import React, { Component } from 'react'
-import { ProductsContextProvider } from './Global/ProductsContext'
-import { Home } from './Components/Home'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import { Signup } from './Components/Signup'
-import { Login } from './Components/Login'
-import { NotFound } from './Components/NotFound'
-import { auth, db } from './Config/Config'
-import { CartContextProvider } from './Global/CartContext'
-import { Cart } from './Components/Cart'
-import { AddProducts } from './Components/AddProducts'
-import { Cashout } from './Components/Cashout'
-import { useHistory } from 'react-router-dom'
+import React, { Component } from 'react';
+import { ProductsContextProvider } from './Global/ProductsContext';
+import { Home } from './Components/Home';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Signup } from './Components/Signup';
+import { Login } from './Components/Login';
+import { NotFound } from './Components/NotFound';
+import { auth } from './Config/Config';
+import { CartContextProvider } from './Global/CartContext';
+import { Cart } from './Components/Cart';
+import { AddProducts } from './Components/AddProducts';
+import { Cashout } from './Components/Cashout';
+import { Dashboard } from './Components/Dashboard';
 
 export class App extends Component {
 
@@ -48,6 +48,8 @@ export class App extends Component {
                             <Route path="/signup" component={Signup} />
                             {/* login */}
                             <Route path="/login" component={Login} />
+                            {/* dashboard */}
+                            <Route path="/dashboard" component={Dashboard} />
                             {/* cart products */}
                             <Route path="/cartproducts" component={() => <Cart user={this.state.user} />} />
                             {/* add products */}

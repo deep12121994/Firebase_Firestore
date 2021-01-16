@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
-import { auth, ui } from '../Config/Config'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { auth } from '../Config/Config';
 import firebase from "firebase";
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 

@@ -29,6 +29,20 @@ body {
     font-family: 'Open Sans', serif;
 }
 
+/* header */
+/* sidebar*/
+.sidebar {
+    max-width: 240px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-item-text {
+    width: 100%;
+}
+
+.sidebar-subitem-text {
+    font-size: 0.8rem;
+}
 /* navbar */
 .navbox {
     display: flex;

@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
 import Header from './Header';
 import Sidebar from './Sidebar';
+import { Navbar } from './Navbar';
 
-export class Dashboard extends Component {
-    render(){
-        return(
-            <div>
-                <div className="sidebar">
-                    <Sidebar />
-                </div>
+export const Dashboard = ({ user }) => {
+    return(
+        <div>
+            <Navbar user={user} />
+            <div className="sidebar">
+                
             </div>
-        );
-    }
+        </div>
+    );
 }
-
-export default Dashboard;

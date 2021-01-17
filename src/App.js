@@ -49,7 +49,7 @@ export class App extends Component {
                             {/* login */}
                             <Route path="/login" component={Login} />
                             {/* dashboard */}
-                            <Route path="/dashboard" component={Dashboard} />
+                            <Route path="/dashboard" component={() => <Dashboard user={this.state.user} />} />
                             {/* cart products */}
                             <Route path="/cartproducts" component={() => <Cart user={this.state.user} />} />
                             {/* add products */}

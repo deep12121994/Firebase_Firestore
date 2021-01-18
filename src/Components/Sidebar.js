@@ -1,70 +1,71 @@
-import React from 'react';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import * as FaIcons from 'react-icons/fa';
+import * as AiIcons from 'react-icons/ai';
+import { SidebarVal } from './SidebarVal';
+import SubMenu from './SubMenu';
+import { IconContext } from 'react-icons/lib';
 
+const Nav = styled.div`
+  height: 80px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+`;
 
-function Sidebar() {
-    const items = [
-        { name: 'parties', label: 'Parties' },
-        { name: 'items', label: 'Items' },
-        { name: 'transactions', label: 'Transactions' },
-        { 
-            name: 'sale', label: 'Sale',
-                items: [
-                { name: 'sale order', label: 'Sale Order' },
-                { name: 'payment in', label: 'Payment In' },
-                { name: 'return order', label: 'Return Order'}
-            ],
-        },
-        { 
-            name: 'purchase', label:'Purchase', 
-            items: [
-                { name: 'purchase order', label: 'Purchase Order' },
-                { name: 'payment out', label: 'Payment Out' },
-                { name: 'return order', label: 'Return Order'}
-            ],
-        },
-        { name: 'expense', label:'Expense'}
-    ]
-    
-    return (
-     
-        <div className="sidebar">
-            <List disablePadding dense>
-                {items.map(({ label, name, items: subItems, ...rest }) => {
-                return (
-                    <React.Fragment key={name}>
-                    <ListItem style={{ paddingLeft: 18 }} button {...rest}>
-                        <ListItemText>{label}</ListItemText>
-                    </ListItem>
-                    {Array.isArray(subItems) ? (
-                        <List disablePadding dense>
-                        {subItems.map((subItem) => {
-                            return (
-                            <ListItem
-                                key={subItem.name}
-                                style={{ paddingLeft: 36 }}
-                                button
-                                dense
-                            >
-                                <ListItemText>
-                                <span className="sidebar-subitem-text">
-                                    {subItem.label}
-                                </span>
-                                </ListItemText>
-                            </ListItem>
-                            )
-                        })}
-                        </List>
-                    ) : null}
-                    </React.Fragment>
-                )
-                })}
-            </List>
-        </div>
+const NavIcon = styled(Link)`
+  margin-left: 1rem;
+  font-size: 2rem;
+  height: 80px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+`;
 
-    )
-}
+const SidebarNav = styled.nav`
+  background: #15171c;
+  width: 250px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: ${({ sidebar }) => (sidebar ? '0' : '-100%')};
+  transition: 350ms;
+  z-index: 10;
+`;
+
+const SidebarWrap = styled.div`
+  width: 100%;
+`;
+
+const Sidebar = () => {
+  const [sidebar, setSidebar] = useState(false);
+
+  const showSidebar = () => setSidebar(!sidebar);
+
+  return (
+    <>
+      <IconContext.Provider value={{ color: '#fff' }}>
+        <Nav>
+          <NavIcon to='#'>
+            <FaIcons.FaBars onClick={showSidebar} />
+          </NavIcon>
+        </Nav>
+        <SidebarNav sidebar={sidebar}>
+          <SidebarWrap>
+            <NavIcon to='#'>
+              <AiIcons.AiOutlineClose onClick={showSidebar} />
+            </NavIcon>
+            {SidebarVal.map((item, index) => {
+              return <SubMenu item={item} key={index} />;
+            })}
+          </SidebarWrap>
+        </SidebarNav>
+      </IconContext.Provider>
+    </>
+  );
+};
 
 export default Sidebar;

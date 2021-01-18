@@ -51,11 +51,11 @@ export class App extends Component {
                             {/* dashboard */}
                             <Route path="/dashboard" component={() => <Dashboard user={this.state.user} />} />
                             {/* cart products */}
-                            <Route path="/cartproducts" component={() => <Cart user={this.state.user} />} />
+                            <Route path="/parties" component={() => <Cart user={this.state.user} />} />
                             {/* add products */}
-                            <Route path="/addproducts" component={AddProducts} />
+                            <Route path="/items" component={AddProducts} />
                             {/* cashout */}
-                            <Route path='/cashout' component={() => <Cashout user={this.state.user} />} />
+                            <Route path='/sale/sale order' component={() => <Cashout user={this.state.user} />} />
                             <Route component={NotFound} />
                         </Switch>
                     </BrowserRouter>
